@@ -1,0 +1,14 @@
+C:\Projetos\Parkingspot\bin\Debug\netcoreapp2.1\Parkingspot.deps.json
+C:\Projetos\Parkingspot\bin\Debug\netcoreapp2.1\Parkingspot.runtimeconfig.json
+C:\Projetos\Parkingspot\bin\Debug\netcoreapp2.1\Parkingspot.runtimeconfig.dev.json
+C:\Projetos\Parkingspot\bin\Debug\netcoreapp2.1\Parkingspot.dll
+C:\Projetos\Parkingspot\bin\Debug\netcoreapp2.1\Parkingspot.pdb
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.csprojAssemblyReference.cache
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.csproj.CoreCompileInputs.cache
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.RazorAssemblyInfo.cache
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.RazorAssemblyInfo.cs
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.AssemblyInfoInputs.cache
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.AssemblyInfo.cs
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.RazorTargetAssemblyInfo.cache
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.dll
+C:\Projetos\Parkingspot\obj\Debug\netcoreapp2.1\Parkingspot.pdb
