@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Parkingspot.Config;
 using Parkingspot.Models;
+using UserApp.Models;
 
 namespace Parkingspot
 {
@@ -30,14 +31,14 @@ namespace Parkingspot
             var config = new ServerConfig();
             Configuration.Bind(config);
 
-            var clienteContexto = new ClientesContext(config.MongoDB);
-            var repo = new ClientesRepository(clienteContexto);
+            var UserContext = new UserContext(config.MongoDB);
+            var repo = new UserRepository(UserContext);
 
-            services.AddSingleton<IClientesRepository>(repo);
-
+            services.AddSingleton<IUserRepository>(repo);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-}
+
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
