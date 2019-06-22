@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Parkingspot.Config;
 using Parkingspot.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Parkingspot
 {
@@ -34,7 +35,17 @@ namespace Parkingspot
             var repo = new ClientesRepository(clienteContexto);
 
             services.AddSingleton<IClientesRepository>(repo);
+            services.AddSingleton<IClientesContext, ClientesContext>();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "Todo API",
+                    Version = "v1",
+                    Description = "Todo API tutorial using MongoDB",
+                });
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
@@ -50,6 +61,12 @@ namespace Parkingspot
             {
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();

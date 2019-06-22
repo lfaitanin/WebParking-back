@@ -37,6 +37,12 @@ namespace Parkingspot.Controllers
         [HttpPost]
         public async Task<ActionResult<Clientes>> Post([FromBody] Clientes clientes)
         {
+            clientes = new Clientes
+            {
+                Adress = "asdad",
+                Id = 1,
+                Coordinates = 0.1
+            };
             clientes.Id = await _repo.GetNextId();
             await _repo.Create(clientes);
             return new OkObjectResult(clientes);

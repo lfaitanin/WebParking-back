@@ -13,12 +13,13 @@ namespace Parkingspot.Config
         public string User { get; set; }
         public string Password { get; set; }
 
-        public string ConnectionString {
-            get {
+        public string ConnectionString
+        {
+            get
+            {
                 if (string.IsNullOrEmpty(User) || string.IsNullOrEmpty(Password))
                     return $@"mongodb://{Host}:{Port}";
-
-                return $@"mongodb://{User}:{Password}@{Host}:{Port}/{Database}";
+                return $@"mongodb://{User}:{Password}@{Host}:{Port}";
             }
         }
 

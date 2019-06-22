@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.1'
 services:
     mongo:
         container_name: mongo
@@ -27,4 +27,5 @@ services:
           - "8000:80"
         build: .
         depends_on:
-          - mongo      
+          - mongo
+          

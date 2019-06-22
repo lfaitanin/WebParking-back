@@ -11,10 +11,10 @@ namespace Parkingspot.Models
     {
         private readonly IMongoDatabase _db;
 
-        public ClientesContext()
+        public ClientesContext(MongoDBConfig config)
         {
-            new MongoClient("mongodb://root:example@localhost:27017/db-name?connect=clientes");
-
+            var client = new MongoClient(config.ConnectionString);
+            _db = client.GetDatabase(config.Database);
         }
 
         public IMongoCollection<Clientes> Cliente => _db.GetCollection<Clientes>("Clientes");
