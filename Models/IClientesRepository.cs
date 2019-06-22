@@ -1,22 +1,26 @@
-﻿using System;
+﻿using Parkingspot.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-
-namespace Parkingspot.Models
+namespace Models
 {
+
     public interface IClientesRepository
     {
         // api/[GET]
-        Task<IEnumerable<Clientes>> GetAllCliente();
+        Task<IEnumerable<Clientes>> GetAllClientes();
+
         // api/1/[GET]
         Task<Clientes> GetCliente(long id);
+
         // api/[POST]
-        Task Create(Clientes Cliente);
+        Task Create(Clientes User);
+
         // api/[PUT]
-        Task<bool> Update(Clientes Cliente);
+        Task<bool> Update(Clientes User);
+
         // api/1/[DELETE]
         Task<bool> Delete(long id);
+
         Task<long> GetNextId();
     }
 }

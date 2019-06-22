@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Models;
 using Parkingspot.Models;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Parkingspot.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Clientes>>> Get()
         {
-            return new ObjectResult(await _repo.GetAllCliente());
+            return new ObjectResult(await _repo.GetAllClientes());
         }
         // GET api/todos/1
         [HttpGet("{id}")]

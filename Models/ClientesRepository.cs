@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Parkingspot.Models
         {
             _context = context;
         }
-        public async Task<IEnumerable<Clientes>> GetAllCliente()
+        public async Task<IEnumerable<Clientes>> GetAllClientes()
         {
             return await _context
                             .Cliente

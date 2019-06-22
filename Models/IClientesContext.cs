@@ -6,9 +6,9 @@ using MongoDB.Driver;
 
 namespace Parkingspot.Models
 {
-    public interface IUserContext
+    public interface IClientesContext
     {
-        IMongoCollection<User> Users { get; }
+        IMongoCollection<Clientes> Cliente { get; }
     }
 
 }

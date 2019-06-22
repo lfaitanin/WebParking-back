@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Parkingspot.Models
 {
-    public class User
+    public class Clientes
     {
         [BsonId]
         public ObjectId InternalId { get; set; }
