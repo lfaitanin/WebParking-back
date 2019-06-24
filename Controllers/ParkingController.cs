@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Parkingspot.Context;
 using Parkingspot.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Parkingspot.Controllers
 {
@@ -35,6 +37,21 @@ namespace Parkingspot.Controllers
             }
             else
                 return new NotFoundObjectResult("Erro ao inserir um novo estacionamento!");
+        }
+
+        [HttpDelete("parking/{code}")]
+        public IActionResult RemoveParking(string code)
+        {
+            Parking prod = _context.RemoveItem<Parking>(code);
+            if (prod != null)
+                return new ObjectResult(prod);
+            else
+                return new NotFoundObjectResult("No pode ser deletado");
+        }
+        [HttpGet("parking/all")]
+        private async Task<IEnumerable<Parking>> GetProductInternal()
+        {
+            return await _context.GetAllProducts();
         }
     }
 }
