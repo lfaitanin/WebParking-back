@@ -39,14 +39,17 @@ namespace Parkingspot.Context
         public R RemoveItem<R>(string codigo)
         {
             var a = Builders<R>.Filter.Eq("Code", codigo);
-             return _db.GetCollection<R>("Parking")
-                .FindOneAndDelete(a);
+            return _db.GetCollection<R>("Parking")
+               .FindOneAndDelete(a);
         }
- 
-        public object GetAll<T>()
+
+        public List<Parking> GetAll()
         {
-             var toAll = _db.GetCollection<Parking>("Parking");
-            return toAll.Find(_db => true).ToListAsync();
+            //Executar o drop toda vez que a estrutura do objeto Parking mudar.
+            //_db.DropCollection("Parking");
+            var filter = Builders<Parking>.Filter.Empty;
+
+            return _db.GetCollection<Parking>("Parking").Find(filter).ToList();
         }
     }
 }

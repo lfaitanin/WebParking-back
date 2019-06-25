@@ -48,19 +48,15 @@ namespace Parkingspot.Controllers
             else
                 return new NotFoundObjectResult("No pode ser deletado");
         }
-        [HttpGet("all")]
-        public object AllParkings()
-        {
-            var prod = _context.GetAll<Parking>();
-            if (prod != null)
-            {
 
-                return prod;
-            }
+        [HttpGet("all")]
+        public IActionResult GetAllParkings()
+        {
+            var prod = _context.GetAll();
+            if (prod.Count > 0)
+                return new ObjectResult(prod);
             else
-            {
                 return new NotFoundObjectResult("Nao há dados para mostrar");
-            }
         }
 
 
