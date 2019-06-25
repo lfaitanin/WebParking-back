@@ -16,7 +16,7 @@ namespace Parkingspot.Controllers
             _context = context;
         }
 
-        [HttpGet("parking/{code}")]
+        [HttpGet("{code}")]
         public IActionResult GetParking(string code)
         {
             Parking prod = _context.GetItem<Parking>(code);
@@ -27,19 +27,19 @@ namespace Parkingspot.Controllers
                 return new NotFoundObjectResult("Codigo nao encontrado!");
         }
 
-        [HttpPost("parking/add")]
+        [HttpPost("add")]
         public IActionResult AddParking([FromBody] Parking parking)
         {
+           var savedParking = _context.AddItem(parking);
             if (parking != null)
             {
-                var savedParking = _context.AddItem(parking);
                 return new ObjectResult(savedParking);
             }
             else
                 return new NotFoundObjectResult("Erro ao inserir um novo estacionamento!");
         }
 
-        [HttpDelete("parking/{code}")]
+        [HttpDelete("{code}")]
         public IActionResult RemoveParking(string code)
         {
             Parking prod = _context.RemoveItem<Parking>(code);
@@ -48,10 +48,21 @@ namespace Parkingspot.Controllers
             else
                 return new NotFoundObjectResult("No pode ser deletado");
         }
-        [HttpGet("parking/all")]
-        private async Task<IEnumerable<Parking>> GetProductInternal()
+        [HttpGet("all")]
+        public object AllParkings()
         {
-            return await _context.GetAllProducts();
+            var prod = _context.GetAll<Parking>();
+            if (prod != null)
+            {
+
+                return prod;
+            }
+            else
+            {
+                return new NotFoundObjectResult("Nao há dados para mostrar");
+            }
         }
+
+
     }
 }

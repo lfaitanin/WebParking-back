@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projetos\\WebParking-back\\Parkingspot.csproj": {}
+    "C:\\Projetos\\WebParking-back\\Parkingspot.csproj": {}
   },
   "projects": {
-    "c:\\Projetos\\WebParking-back\\Parkingspot.csproj": {
+    "C:\\Projetos\\WebParking-back\\Parkingspot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projetos\\WebParking-back\\Parkingspot.csproj",
+        "projectUniqueName": "C:\\Projetos\\WebParking-back\\Parkingspot.csproj",
         "projectName": "Parkingspot",
-        "projectPath": "c:\\Projetos\\WebParking-back\\Parkingspot.csproj",
-        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-        "outputPath": "c:\\Projetos\\WebParking-back\\obj\\",
+        "projectPath": "C:\\Projetos\\WebParking-back\\Parkingspot.csproj",
+        "packagesPath": "C:\\Users\\Luiz Faitanin\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\WebParking-back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Luiz Faitanin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -53,7 +57,6 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -61,6 +64,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.7.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

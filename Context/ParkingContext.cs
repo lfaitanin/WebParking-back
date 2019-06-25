@@ -11,14 +11,8 @@ namespace Parkingspot.Context
     public class ParkingContext : IParkingContext
     {
         private IConfiguration _configuration;
-        private readonly ParkingContext _context = null;
-         private readonly MongoClient client = new MongoClient();
+        private readonly MongoClient client = new MongoClient();
         IMongoDatabase _db;
-        public IMongoCollection<Parking> Parkings {
-            get {
-                return _db.GetCollection<Parking>("ParkingDB");
-            }
-        }
 
         public ParkingContext(IConfiguration config)
         {
@@ -48,11 +42,11 @@ namespace Parkingspot.Context
              return _db.GetCollection<R>("Parking")
                 .FindOneAndDelete(a);
         }
-
-     
-        public async Task<IEnumerable<Parking>> GetAllProducts()
+ 
+        public object GetAll<T>()
         {
-            return await _context.Parkings.Find(_ => true).ToListAsync();
+             var toAll = _db.GetCollection<Parking>("Parking");
+            return toAll.Find(_db => true).ToListAsync();
         }
     }
 }

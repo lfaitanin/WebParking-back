@@ -11,8 +11,7 @@ namespace Parkingspot.Context
         T GetItem<T>(string codigo);
         Parking AddItem(Parking parking);
         R RemoveItem<R>(string id);
-        Task<IEnumerable<Parking>> GetAllProducts();
-
+        object GetAll<T>();
     }
 
 }
