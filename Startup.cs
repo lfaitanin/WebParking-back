@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Parkingspot.BLL;
 using Parkingspot.Context;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -21,6 +24,7 @@ namespace Parkingspot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IParkingContext, ParkingContext>();
+            services.AddSingleton<ILocationLogic, LocationLogic>();
 
             services.AddSwaggerGen(c =>
             {
@@ -40,8 +44,14 @@ namespace Parkingspot
                 });
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-}
+            services.AddMvc().
+                AddJsonOptions(opt =>
+                {
+                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

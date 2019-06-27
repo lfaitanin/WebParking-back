@@ -1,19 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Parkingspot.BLL;
 using Parkingspot.Context;
 using Parkingspot.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Parkingspot.Controllers
 {
     [Route("api/[Controller]")]
-    public class ParkingController
+    public class ParkingController : ControllerBase
     {
         private readonly IParkingContext _context;
-        
-        public ParkingController(IParkingContext context)
+        private readonly ILocationLogic _locationLogic;
+
+        public ParkingController(IParkingContext context, ILocationLogic locationLogic)
         {
             _context = context;
+            _locationLogic = locationLogic;
         }
 
         [HttpGet("{code}")]
@@ -22,21 +26,27 @@ namespace Parkingspot.Controllers
             Parking prod = _context.GetItem<Parking>(code);
 
             if (prod != null)
-                return new ObjectResult(prod);
+                return Ok(prod);
             else
-                return new NotFoundObjectResult("Codigo nao encontrado!");
+                return NotFound("Codigo nao encontrado!");
         }
 
         [HttpPost("add")]
         public IActionResult AddParking([FromBody] Parking parking)
         {
-           var savedParking = _context.AddItem(parking);
+            //if (!string.IsNullOrEmpty(parking.LocationId))
+                //parking.Coordinates = GetParkingCoordinates(parking.LocationId);
+
+            var savedParking = _context.AddItem(parking);
             if (parking != null)
-            {
-                return new ObjectResult(savedParking);
-            }
+                return Ok(savedParking);
             else
-                return new NotFoundObjectResult("Erro ao inserir um novo estacionamento!");
+                return NotFound("Erro ao inserir um novo estacionamento!");
+        }
+
+        private string[] GetParkingCoordinates(string locationId)
+        {
+            return _locationLogic.GetCoordinates(locationId);
         }
 
         [HttpDelete("{code}")]
@@ -44,9 +54,9 @@ namespace Parkingspot.Controllers
         {
             Parking prod = _context.RemoveItem<Parking>(code);
             if (prod != null)
-                return new ObjectResult(prod);
+                return Ok(prod);
             else
-                return new NotFoundObjectResult("No pode ser deletado");
+                return NotFound("No pode ser deletado");
         }
 
         [HttpGet("all")]
@@ -54,9 +64,9 @@ namespace Parkingspot.Controllers
         {
             var prod = _context.GetAll();
             if (prod.Count > 0)
-                return new ObjectResult(prod);
+                return Ok(prod);
             else
-                return new NotFoundObjectResult("Nao há dados para mostrar");
+                return NotFound("Nao há dados para mostrar");
         }
 
 
