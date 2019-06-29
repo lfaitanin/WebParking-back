@@ -68,6 +68,19 @@ namespace Parkingspot.Controllers
             else
                 return NotFound("Nao há dados para mostrar");
         }
+        [HttpPut]
+
+        public ActionResult PutResult(Parking parking)
+        {
+            var prod = _context.UpdateTo(parking);
+            if (prod.Code != null)
+            {
+                return Ok(prod);
+            }
+            else
+                return NotFound("Não deu");
+
+        }
 
 
     }

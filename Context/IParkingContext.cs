@@ -12,6 +12,7 @@ namespace Parkingspot.Context
         Parking AddItem(Parking parking);
         R RemoveItem<R>(string id);
         List<Parking> GetAll();
+        Parking UpdateTo(Parking parking);
     }
 
 }

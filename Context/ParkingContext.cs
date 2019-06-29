@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Parkingspot.Models;
 using System.Collections.Generic;
@@ -50,6 +52,13 @@ namespace Parkingspot.Context
             var filter = Builders<Parking>.Filter.Empty;
 
             return _db.GetCollection<Parking>("Parking").Find(filter).ToList();
+        }
+        public Parking UpdateTo(Parking parking)
+        {
+               var updateTo = Builders<Parking>.Update.Set("Price", parking.Price)
+                .Set("HasDiscount", parking.HasDiscount)
+                .Set("Address", parking.Adress);
+            return parking;
         }
     }
 }

@@ -13,4 +13,6 @@ WORKDIR /app
 
 COPY --from=build /app/out .
 
+RUN docker-compose up -d
+
 ENTRYPOINT ["dotnet", "Parkingspot.dll"]`
