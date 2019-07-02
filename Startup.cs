@@ -24,7 +24,6 @@ namespace Parkingspot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IParkingContext, ParkingContext>();
-            //services.AddScoped<ParkingContext>();
             services.AddSingleton<ILocationLogic, LocationLogic>();
 
             services.AddSwaggerGen(c =>
@@ -66,7 +65,6 @@ namespace Parkingspot
                 app.UseHsts();
             }
 
-            app.UseDefaultFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

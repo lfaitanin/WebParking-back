@@ -12,3 +12,17 @@ C:\Users\Luiz Faitanin\Documents\WebParking-back\obj\Release\netcoreapp2.1\Parki
 C:\Users\Luiz Faitanin\Documents\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.RazorTargetAssemblyInfo.cache
 C:\Users\Luiz Faitanin\Documents\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.dll
 C:\Users\Luiz Faitanin\Documents\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.pdb
+c:\Projetos\WebParking-back\bin\Release\netcoreapp2.1\Parkingspot.deps.json
+c:\Projetos\WebParking-back\bin\Release\netcoreapp2.1\Parkingspot.runtimeconfig.json
+c:\Projetos\WebParking-back\bin\Release\netcoreapp2.1\Parkingspot.runtimeconfig.dev.json
+c:\Projetos\WebParking-back\bin\Release\netcoreapp2.1\Parkingspot.dll
+c:\Projetos\WebParking-back\bin\Release\netcoreapp2.1\Parkingspot.pdb
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.csprojAssemblyReference.cache
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.csproj.CoreCompileInputs.cache
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.RazorAssemblyInfo.cache
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.RazorAssemblyInfo.cs
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.AssemblyInfoInputs.cache
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.AssemblyInfo.cs
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.RazorTargetAssemblyInfo.cache
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.dll
+c:\Projetos\WebParking-back\obj\Release\netcoreapp2.1\Parkingspot.pdb

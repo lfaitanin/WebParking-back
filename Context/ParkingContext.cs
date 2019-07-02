@@ -18,7 +18,6 @@ namespace Parkingspot.Context
         {
             _configuration = config;
             client = new MongoClient(_configuration.GetConnectionString("MongoConnection"));
-            //_configuration.GetConnectionString("MongoConnection");
             _db = client.GetDatabase("heroku_b7x779xn");
         }
 
