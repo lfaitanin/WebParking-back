@@ -6,9 +6,10 @@ namespace Parkingspot.Models
 {
     public class Parking
     {
-        public ObjectId _id { get; set; }
-
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Code { get; set; }
+
         public string ParkingName { get; set; }
         public string Adress { get; set; }
         public string LocationId { get; set; }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Parkingspot.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,55 +12,38 @@ using System.Threading.Tasks;
 
 namespace Parkingspot.Context
 {
-    public class ParkingContext : IParkingContext
+    public class ParkingContext
     {
-        private IConfiguration _configuration;
-        private readonly MongoClient client = new MongoClient();
-        IMongoDatabase _db;
+        private readonly IMongoCollection<Parking> _parkingCollection;
 
         public ParkingContext(IConfiguration config)
         {
-            _configuration = config;
-            _configuration.GetConnectionString("MongoConnection");
-            _db = client.GetDatabase("ParkingDB");
+            var client = new MongoClient(config.GetConnectionString("ParkingConnection"));
+            var database = client.GetDatabase("ParkingDb");
+
+            _parkingCollection = database.GetCollection<Parking>("Parkings");
+        }
+        public List<Parking> Get()
+        {
+            return _parkingCollection.Find(parking => true).ToList();
         }
 
-        public T GetItem<T>(string codigo)
+        public Parking Get(string id)
         {
-            var filter = Builders<T>.Filter.Eq("Code", codigo);
-
-            return _db.GetCollection<T>("Parking")
-                .Find(filter).FirstOrDefault();
+            return _parkingCollection.Find(parking => parking.Code == id).FirstOrDefault();
         }
-
-        public Parking AddItem(Parking parking)
+        public Parking Create(Parking parking)
         {
-            var parkingDb = _db.GetCollection<Parking>("Parking");
-            parkingDb.InsertOne(parking);
+            _parkingCollection.InsertOne(parking);
             return parking;
         }
-
-        public R RemoveItem<R>(string codigo)
+        public void Update(string id, Parking newParking)
         {
-            var a = Builders<R>.Filter.Eq("Code", codigo);
-            return _db.GetCollection<R>("Parking")
-               .FindOneAndDelete(a);
+            _parkingCollection.ReplaceOne(parking => parking.Code == id, newParking);
         }
-
-        public List<Parking> GetAll()
+        public void Remove(string id)
         {
-            //Executar o drop toda vez que a estrutura do objeto Parking mudar.
-            //_db.DropCollection("Parking");
-            var filter = Builders<Parking>.Filter.Empty;
-
-            return _db.GetCollection<Parking>("Parking").Find(filter).ToList();
-        }
-        public Parking UpdateTo(Parking parking)
-        {
-               var updateTo = Builders<Parking>.Update.Set("Price", parking.Price)
-                .Set("HasDiscount", parking.HasDiscount)
-                .Set("Address", parking.Adress);
-            return parking;
+            _parkingCollection.DeleteOne(parking => parking.Code == id);
         }
     }
 }
