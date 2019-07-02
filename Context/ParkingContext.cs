@@ -11,27 +11,28 @@ namespace Parkingspot.Context
     public class ParkingContext : IParkingContext
     {
         private IConfiguration _configuration;
-        private readonly MongoClient client = new MongoClient();
+        private readonly MongoClient client;
         IMongoDatabase _db;
 
         public ParkingContext(IConfiguration config)
         {
             _configuration = config;
-            _configuration.GetConnectionString("MongoConnection");
-            _db = client.GetDatabase("ParkingDB");
+            client = new MongoClient(_configuration.GetConnectionString("MongoConnection"));
+            //_configuration.GetConnectionString("MongoConnection");
+            _db = client.GetDatabase("heroku_b7x779xn");
         }
 
         public T GetItem<T>(string codigo)
         {
             var filter = Builders<T>.Filter.Eq("Code", codigo);
 
-            return _db.GetCollection<T>("Parking")
+            return _db.GetCollection<T>("ParkingDb")
                 .Find(filter).FirstOrDefault();
         }
 
         public Parking AddItem(Parking parking)
         {
-            var parkingDb = _db.GetCollection<Parking>("Parking");
+            var parkingDb = _db.GetCollection<Parking>("ParkingDb");
             parkingDb.InsertOne(parking);
             return parking;
         }
@@ -39,7 +40,7 @@ namespace Parkingspot.Context
         public R RemoveItem<R>(string codigo)
         {
             var a = Builders<R>.Filter.Eq("Code", codigo);
-            return _db.GetCollection<R>("Parking")
+            return _db.GetCollection<R>("ParkingDb")
                .FindOneAndDelete(a);
         }
 
@@ -49,7 +50,7 @@ namespace Parkingspot.Context
             //_db.DropCollection("Parking");
             var filter = Builders<Parking>.Filter.Empty;
 
-            return _db.GetCollection<Parking>("Parking").Find(filter).ToList();
+            return _db.GetCollection<Parking>("ParkingDb").Find(filter).ToList();
         }
     }
 }

@@ -23,10 +23,10 @@ namespace Parkingspot.Controllers
         [HttpGet("{code}")]
         public IActionResult GetParking(string code)
         {
-            Parking prod = _context.GetItem<Parking>(code);
+            Parking parking = _context.GetItem<Parking>(code);
 
-            if (prod != null)
-                return Ok(prod);
+            if (parking != null)
+                return Ok(parking);
             else
                 return NotFound("Codigo nao encontrado!");
         }
@@ -52,9 +52,9 @@ namespace Parkingspot.Controllers
         [HttpDelete("{code}")]
         public IActionResult RemoveParking(string code)
         {
-            Parking prod = _context.RemoveItem<Parking>(code);
-            if (prod != null)
-                return Ok(prod);
+            Parking parking = _context.RemoveItem<Parking>(code);
+            if (parking != null)
+                return Ok(parking);
             else
                 return NotFound("No pode ser deletado");
         }
@@ -62,9 +62,9 @@ namespace Parkingspot.Controllers
         [HttpGet("all")]
         public IActionResult GetAllParkings()
         {
-            var prod = _context.GetAll();
-            if (prod.Count > 0)
-                return Ok(prod);
+            var parking = _context.GetAll();
+            if (parking.Count > 0)
+                return Ok(parking);
             else
                 return NotFound("Nao há dados para mostrar");
         }
