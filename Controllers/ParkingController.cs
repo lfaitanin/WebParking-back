@@ -20,15 +20,10 @@ namespace Parkingspot.Controllers
             _locationLogic = locationLogic;
         }
 
-        [HttpGet("{code}")]
-        public IActionResult GetParking(string code)
+        [HttpGet("{id}")]
+        public Task<Parking> Get(string id)
         {
-            Parking parking = _context.GetItem<Parking>(code);
-
-            if (parking != null)
-                return Ok(parking);
-            else
-                return NotFound("Codigo nao encontrado!");
+            return _context.GetParking(id);
         }
 
         [HttpPost("add")]
@@ -49,10 +44,10 @@ namespace Parkingspot.Controllers
             return _locationLogic.GetCoordinates(locationId);
         }
 
-        [HttpDelete("{code}")]
-        public IActionResult RemoveParking(string code)
+        [HttpDelete("{id}")]
+        public IActionResult RemoveParking(string id)
         {
-            Parking parking = _context.RemoveItem<Parking>(code);
+            Parking parking = _context.RemoveItem<Parking>(id);
             if (parking != null)
                 return Ok(parking);
             else
@@ -67,6 +62,18 @@ namespace Parkingspot.Controllers
                 return Ok(parking);
             else
                 return NotFound("Nao há dados para mostrar");
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(string id, [FromBody]Parking parkingIn)
+        {
+            var park = _context.GetParking(id);
+            if (park == null)
+            {
+                return NotFound();
+            }
+            _context.Update(id, parkingIn);
+            return NoContent();
         }
 
 

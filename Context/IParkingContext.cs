@@ -8,9 +8,11 @@ namespace Parkingspot.Context
 {
     public interface IParkingContext
     {
-        T GetItem<T>(string codigo);
+        Task<Parking> GetParking(string id);
         Parking AddItem(Parking parking);
-        R RemoveItem<R>(string codigo);
+        R RemoveItem<R>(string id);
         List<Parking> GetAll();
+        void Update(string id, Parking parkingIn);
+
     }
 }

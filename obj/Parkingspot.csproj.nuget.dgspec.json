@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projetos\\WebParking-back\\Parkingspot.csproj": {}
+    "C:\\Users\\Luiz Faitanin\\OneDrive\\Documentos\\Projetos\\WebParking-back\\Parkingspot.csproj": {}
   },
   "projects": {
-    "c:\\Projetos\\WebParking-back\\Parkingspot.csproj": {
+    "C:\\Users\\Luiz Faitanin\\OneDrive\\Documentos\\Projetos\\WebParking-back\\Parkingspot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projetos\\WebParking-back\\Parkingspot.csproj",
+        "projectUniqueName": "C:\\Users\\Luiz Faitanin\\OneDrive\\Documentos\\Projetos\\WebParking-back\\Parkingspot.csproj",
         "projectName": "Parkingspot",
-        "projectPath": "c:\\Projetos\\WebParking-back\\Parkingspot.csproj",
-        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-        "outputPath": "c:\\Projetos\\WebParking-back\\obj\\",
+        "projectPath": "C:\\Users\\Luiz Faitanin\\OneDrive\\Documentos\\Projetos\\WebParking-back\\Parkingspot.csproj",
+        "packagesPath": "C:\\Users\\Luiz Faitanin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Luiz Faitanin\\OneDrive\\Documentos\\Projetos\\WebParking-back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Luiz Faitanin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
