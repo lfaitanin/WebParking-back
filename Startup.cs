@@ -40,7 +40,9 @@ namespace Parkingspot
             {
                 options.AddPolicy("AllowMyOrigin", builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
+                        .WithOrigins("http://localhost:8080/")
+                        .WithOrigins("http://parkingspot-front.herokuapp.com/");
                 });
             });
 

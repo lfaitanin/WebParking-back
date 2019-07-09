@@ -29,8 +29,8 @@ namespace Parkingspot.Controllers
         [HttpPost("add")]
         public IActionResult AddParking([FromBody] Parking parking)
         {
-            //if (!string.IsNullOrEmpty(parking.LocationId))
-                //parking.Coordinates = GetParkingCoordinates(parking.LocationId);
+            if (!string.IsNullOrEmpty(parking.LocationId))
+                parking.Coordinates = GetParkingCoordinates(parking.LocationId);
 
             var savedParking = _context.AddItem(parking);
             if (parking != null)
@@ -39,7 +39,7 @@ namespace Parkingspot.Controllers
                 return NotFound("Erro ao inserir um novo estacionamento!");
         }
 
-        private string[] GetParkingCoordinates(string locationId)
+        private double[] GetParkingCoordinates(string locationId)
         {
             return _locationLogic.GetCoordinates(locationId);
         }
@@ -47,9 +47,9 @@ namespace Parkingspot.Controllers
         [HttpDelete("{id}")]
         public IActionResult RemoveParking(string id)
         {
-            Parking parking = _context.RemoveItem<Parking>(id);
-            if (parking != null)
-                return Ok(parking);
+            var result = _context.RemoveItem(id);
+            if (result)
+                return Ok();
             else
                 return NotFound("No pode ser deletado");
         }

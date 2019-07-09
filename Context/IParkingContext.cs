@@ -10,7 +10,7 @@ namespace Parkingspot.Context
     {
         Task<Parking> GetParking(string id);
         Parking AddItem(Parking parking);
-        R RemoveItem<R>(string id);
+        bool RemoveItem(string id);
         List<Parking> GetAll();
         void Update(string id, Parking parkingIn);
 

@@ -7,6 +7,6 @@ namespace Parkingspot.BLL
 {
     public interface ILocationLogic
     {
-        string[] GetCoordinates(string LocationId);
+        double[] GetCoordinates(string LocationId);
     }
 }

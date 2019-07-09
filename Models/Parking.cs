@@ -13,10 +13,10 @@ namespace Parkingspot.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
         public string ParkingName { get; set; }
-        public Address Address { get; set; }
+        public string Address { get; set; }
         public string LocationId { get; set; }
         public PriceProvider Price { get; set; }
-        public string[] Coordinates { get; set; }
+        public double[] Coordinates { get; set; }
         public bool HasDiscount { get; set; }
         [BsonDateTimeOptions]
         public DateTime UpdatedOn { get; set; } = DateTime.Now;

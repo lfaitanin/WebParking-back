@@ -14,24 +14,21 @@ namespace Parkingspot.Context
     {
         private IConfiguration _configuration;
         private readonly MongoClient client;
-        IMongoDatabase _db;
+        private IMongoDatabase _db;
+        private IMongoCollection<Parking> ParkingCollection;
 
         public ParkingContext(IConfiguration config)
         {
             _configuration = config;
             client = new MongoClient(_configuration.GetConnectionString("MongoConnection"));
             _db = client.GetDatabase("heroku_b7x779xn");
-        }
-        public IMongoCollection<Parking> ParkingCollection {
-            get {
-                return _db.GetCollection<Parking>("ParkingDb");
-            }
+            ParkingCollection = _db.GetCollection<Parking>("ParkingDb");
         }
 
 
-        public async Task<Parking> GetParking(string codigo)
+        public async Task<Parking> GetParking(string id)
         {
-            var filter = Builders<Parking>.Filter.Eq("Code", codigo);
+            var filter = Builders<Parking>.Filter.Eq("id", id);
             return await ParkingCollection
                 .Find(filter)
                 .FirstOrDefaultAsync();
@@ -44,16 +41,25 @@ namespace Parkingspot.Context
             return parking;
         }
 
-        public R RemoveItem<R>(string codigo)
+        public bool RemoveItem(string id)
         {
-            var a = Builders<R>.Filter.Eq("Code", codigo);
-            return _db.GetCollection<R>("ParkingDb")
-               .FindOneAndDelete(a);
+            try
+            {
+                var itemToBeDeleted = Builders<Parking>.Filter.Eq("id", id);
+                ParkingCollection.FindOneAndDelete(itemToBeDeleted);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
         public List<Parking> GetAll()
         {
             //Executar o drop toda vez que a estrutura do objeto Parking mudar.
-            //_db.DropCollection("Parking");
+            //_db.DropCollection("ParkingDb");
             var filter = Builders<Parking>.Filter.Empty;
 
             return ParkingCollection.Find(filter).ToList();
@@ -64,5 +70,5 @@ namespace Parkingspot.Context
             ParkingCollection.ReplaceOne(parking => parking.id == id, parkingIn);
         }
     }
- 
+
 }
