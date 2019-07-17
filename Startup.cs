@@ -40,9 +40,9 @@ namespace Parkingspot
             {
                 options.AddPolicy("AllowMyOrigin", builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
-                        .WithOrigins("http://localhost:8080/")
-                        .WithOrigins("http://parkingspot-front.herokuapp.com/");
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                        //.WithOrigins("http://localhost:8080/")
+                        //.WithOrigins("http://parkingspot-front.herokuapp.com/");
                 });
             });
 
@@ -53,6 +53,7 @@ namespace Parkingspot
                     opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +74,7 @@ namespace Parkingspot
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            //app.UseCors(option => option.AllowAnyOrigin());
             app.UseCors("AllowMyOrigin");
             //app.UseHttpsRedirection();
             app.UseMvc();
