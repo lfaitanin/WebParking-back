@@ -5,9 +5,9 @@ PARA FAZER O DEPLOY NO HEROKU - Dentro da raiz:
 - docker build -t parkingspot ./bin/release/netcoreapp2.1/publish
 - heroku login
 - heroku container:login
-- docker tag parkingspot registry.heroku.com/webparkingstop/web
-- docker push registry.heroku.com/webparkingstop/web
-- heroku container:release web -a webparkingstop
+- docker tag parkingspot registry.heroku.com/parkingspot-back/web
+- docker push registry.heroku.com/parkingspot-back/web
+- heroku container:release web -a parkingspot-back
 
 Dockerfile do publish:
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
