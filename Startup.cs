@@ -23,6 +23,7 @@ namespace Parkingspot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IUserContext, UserContext>();
             services.AddSingleton<IParkingContext, ParkingContext>();
             services.AddSingleton<ILocationLogic, LocationLogic>();
 
@@ -41,8 +42,8 @@ namespace Parkingspot
                 options.AddPolicy("AllowMyOrigin", builder =>
                 {
                     builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-                        //.WithOrigins("http://localhost:8080/")
-                        //.WithOrigins("http://parkingspot-front.herokuapp.com/");
+                    //builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
+                    //    .WithOrigins("http://localhost:8080/");
                 });
             });
 
