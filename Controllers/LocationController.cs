@@ -18,7 +18,7 @@ namespace Parkingspot.Controllers
         public IActionResult GetSuggestions(string location)
         {
             var urlToGetSuggestions = string.Format(
-                    "http://autocomplete.geocoder.api.here.com/6.2/suggest.json?query={0}" +
+                    "http://autocomplete.geocoder.cit.api.here.com/6.2/suggest.json?query={0}" +
                     "&app_id={1}" +
                     "&app_code={2}", location, HereAppId, HereAppCode);
 
@@ -32,11 +32,11 @@ namespace Parkingspot.Controllers
                 places.Add(new Address
                 {
                     City = place.Address.City,
-                    Country = place.Address.Country,
                     State = place.Address.State,
+                    District = place.Address.District,
                     LocationId = place.locationId,
                     DisplayName = $"{place.label}, {place.Address.State}",
-                    FullDisplayName = $"{place.label}, {place.Address.State}, {place.Address.Country}",
+                    FullDisplayName = $"{place.label}, {place.Address.State}, {place.Address.District}",
                 });
             }
 

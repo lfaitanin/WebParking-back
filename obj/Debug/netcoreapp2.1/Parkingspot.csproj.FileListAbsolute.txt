@@ -54,3 +54,17 @@ C:\Users\Luiz Faitanin\OneDrive\Documentos\Projetos\WebParking-back\obj\Debug\ne
 C:\Users\Luiz Faitanin\OneDrive\Documentos\Projetos\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.RazorTargetAssemblyInfo.cache
 C:\Users\Luiz Faitanin\OneDrive\Documentos\Projetos\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.dll
 C:\Users\Luiz Faitanin\OneDrive\Documentos\Projetos\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.pdb
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\bin\Debug\netcoreapp2.1\Parkingspot.deps.json
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\bin\Debug\netcoreapp2.1\Parkingspot.runtimeconfig.json
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\bin\Debug\netcoreapp2.1\Parkingspot.runtimeconfig.dev.json
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\bin\Debug\netcoreapp2.1\Parkingspot.dll
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\bin\Debug\netcoreapp2.1\Parkingspot.pdb
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.csprojAssemblyReference.cache
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.csproj.CoreCompileInputs.cache
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.RazorAssemblyInfo.cache
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.RazorAssemblyInfo.cs
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.AssemblyInfoInputs.cache
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.AssemblyInfo.cs
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.RazorTargetAssemblyInfo.cache
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.dll
+C:\Users\Luiz Faitanin\OneDrive\Documentos\Projects\WebParking-back\obj\Debug\netcoreapp2.1\Parkingspot.pdb
